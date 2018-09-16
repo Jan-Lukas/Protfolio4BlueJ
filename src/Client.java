@@ -20,7 +20,7 @@ public class Client {
 	public void returnBook (String title) {
 		Book bookToReturn = null;
 		for (Book book : borrowedBooks) {
-			if (book.caption.equals (title)) {
+			if (book.bookTitle.equals (title)) {
 				bookToReturn = book;
 				break;
 			}
@@ -31,5 +31,12 @@ public class Client {
 	public boolean isFavoriteCategory (String category) {
 	    return favoriteCategories.contains (category);
 	}
+	
+    public void borrowBook (Book book) {
+        
+        if (!book.isCompactDisc()) {
+            this.borrowedBooks.add (book);
+        }
+    }
 
 }
