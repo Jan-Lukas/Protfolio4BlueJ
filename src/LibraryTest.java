@@ -31,7 +31,7 @@ public class LibraryTest {
 
 @Test 
 public void addCompactDiscTest(){
-	// a seperate compactDisk class would be usefull. 
+	// a seperate compactDisk class would be useful. 
 	Book compactDisc = book;
 	compactDisc.setCompactDisc(true);
 	out.addBook(compactDisc);
