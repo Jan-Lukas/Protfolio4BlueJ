@@ -33,16 +33,17 @@
 		}
 
 		@Test
-		public void addPageTest() {
+		public void addContentTest() {
 			out.addContent(CONTENT);
-			assertEquals(1, out.getContentList().size());
+			assertEquals(true, out.getContent().contains(CONTENT));
 		}
 
 		@Test
-		public void addTwoPagesTest() {
+		public void addTwoStringsToContentTest() {
 			out.addContent(CONTENT);
 			out.addContent(SECOND_CONTENT);
-			assertEquals(2, out.getContentList().size());
+			assertEquals(true, out.getContent().contains(CONTENT));
+			assertEquals(true, out.getContent().contains(SECOND_CONTENT));
 		}
 
 		@Test
@@ -52,7 +53,7 @@
 		}
 
 		@Test
-		public void positiveSecondPageContainsTest() {
+		public void SecondPageContainsTest() {
 			out.addContent(CONTENT);
 			out.addContent(SECOND_CONTENT);
 			assertEquals(true, out.contains(SECOND_CONTENT));

@@ -3,7 +3,6 @@ import java.util.List;
 
 public class CompactDisc {
 	
-	//Tests hinzufügen
 	private String title;
 	private String category;
 	private List<String> content = new ArrayList<>();
@@ -60,7 +59,7 @@ public class CompactDisc {
 		this.category = category;
 	}
 
-	public List<String> getContentList() {
+	public List<String> getContent() {
 		return new ArrayList<>(content);
 	}
 }
