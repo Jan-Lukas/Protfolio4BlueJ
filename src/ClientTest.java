@@ -1,5 +1,6 @@
 import static org.junit.Assert.*;
 
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -22,6 +23,7 @@ public class ClientTest {
 
 		out = new Client(CLIENT_NAME, CLIENT_ADDRESS);
 		library = new Library();
+		library.addClient(out);
 		book = new Book(BOOK_TITLE, AUTHOR_BOOK);
 		secondBook = new Book(BOOK_TITLE2, AUTHOR_BOOK2);
 
@@ -29,58 +31,29 @@ public class ClientTest {
 
 	@Test
 	public void addOneClientTest() {
-
-		out.addToLibrary(library);
-
-		assertEquals(out, library.clients.get(0));
+		Library libraryForClientTest = new Library();
+		libraryForClientTest.addClient(out);
+		assertEquals(out, libraryForClientTest.getClients().get(0));
 	}
 
-	// The name "out" doesn't make sense, because this method should be in
-	// library
-	@Test
-	public void addTwoClientsTest() {
-		Client out2 = new Client("Mark", "Hagebuttenstraﬂe 85");
-		Library library = new Library();
-		out.addToLibrary(library);
-		out2.addToLibrary(library);
-
-		assertEquals(out, library.clients.get(0));
-		assertEquals(out2, library.clients.get(1));
-	}
-
-	// addToLibrary shouldn't add the same client twice
-	@Test
-	public void addTheSameClientTwiceTest() {
-
-		out.addToLibrary(library);
-		out.addToLibrary(library);
-
-		// If addToLibrary is supposed to add every Client only once
-		// assertEquals(1, library.clients.size());
-
-		// If addToLibrary is supposed to add every Client as often as
-		// addToLibrary is called
-		assertEquals(2, library.clients.size());
-	}
 
 	@Test
 	public void returnBookTest() {
-		out.addToLibrary(library);
 		library.addBook(book);
 		out.borrowBook(book);
 		out.returnBook(BOOK_TITLE);
-		assertEquals(0, out.borrowedBooks.size());
+		assertEquals(0, out.getBorrowedBooks().size());
 	}
 
 	@Test
 	public void returnOneOfTwoBooksTest() {
-		out.addToLibrary(library);
+		library.addClient(out);
 		library.addBook(book);
 		out.borrowBook(book);
 		library.addBook(secondBook);
 		out.borrowBook(secondBook);
 		out.returnBook(BOOK_TITLE);
-		assertEquals(BOOK_TITLE2, out.borrowedBooks.get(0).bookTitle);
+		assertEquals(BOOK_TITLE2, out.getBorrowedBooks().get(0).getTitle());
 
 	}
 
@@ -91,8 +64,9 @@ public class ClientTest {
 
 	@Test
 	public void positiveIsFavoriteCategoryTest() {
+		// there is no function implemented to simply add a category.
 
-		out.favoriteCategories.add(CATEGORY_CRIME);
+		out.addFavoriteCategory(CATEGORY_CRIME);
 		assertEquals(true, out.isFavoriteCategory(CATEGORY_CRIME));
 	}
 
@@ -100,17 +74,34 @@ public class ClientTest {
 	@Test
 	public void borrowBookTest() {
 		library.addBook(book);
+		library.addClient(out);
 		out.borrowBook(book);
-		assertEquals(true, out.borrowedBooks.get(0).equals(book));
+		assertEquals(true, out.getBorrowedBooks().get(0).equals(book));
 	}
 
 	@Test
 	public void borrowCompactDiskTest() {
 		book.setCompactDisc(true);
-//		library.addBook(book);
+		// library.addBook(book);
 		out.borrowBook(book);
-		assertEquals(true, out.borrowedBooks.isEmpty());
+		assertEquals(true, out.getBorrowedBooks().isEmpty());
 
+	}
+
+	@Test
+	public void addAndBorrowBookTest() {
+		out.addAndBorrowBook(library, book);
+		library.addClient(out);
+		assertEquals(true, out.getBorrowedBooks().contains(book));
+		assertEquals(true, library.getBooks().contains(book));
+
+	}
+	
+	@Test
+	public void getCountOfBorrowedBooksTest(){
+		out.addAndBorrowBook(library, book);
+		out.addAndBorrowBook(library, secondBook);
+		assertEquals(2, out.getCountOfBorrowedBooks());
 	}
 
 }
