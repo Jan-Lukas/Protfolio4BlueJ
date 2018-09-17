@@ -9,6 +9,9 @@ public class Book {
 	private List<String> listOfKeywords = new ArrayList<>();
 
 	private String author;
+	
+	//set pageContent missing
+	//setListOfKeywords missing
 
 	// we assume that author is mandatory
 	public Book(String title, String author) {
@@ -36,6 +39,9 @@ public class Book {
 		return found;
 	}
 
+	public void addKeyword(String keyword) {
+		this.listOfKeywords.add(keyword);
+	}
 	public void printKeywords() {
 		if (listOfKeywords != null) {
 			System.out.println("Keywords:");
@@ -44,31 +50,8 @@ public class Book {
 		}
 	}
 
-	public String getAuthor() {
-		return author;
-	}
 
-	public void setAuthor(String author) {
-		this.author = author;
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String bookTitle) {
-		this.title = bookTitle;
-	}
-
-	public String getCategory() {
-		return category;
-	}
-
-	public void setCategory(String category) {
-		this.category = category;
-	}
-
-	public List<String> getPageContentList() {
+	public List<String> getPageContent() {
 		return new ArrayList<>(pageContent);
 	}
 
@@ -76,8 +59,28 @@ public class Book {
 		return new ArrayList<>(listOfKeywords);
 	}
 
-	public void addKeyword(String keyword) {
-		this.listOfKeywords.add(keyword);
+	public String getAuthor() {
+		return author;
+	}
+	
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+	
+	public String getTitle() {
+		return title;
+	}
+	
+	public void setTitle(String bookTitle) {
+		this.title = bookTitle;
+	}
+	
+	public String getCategory() {
+		return category;
+	}
+	
+	public void setCategory(String category) {
+		this.category = category;
 	}
 
 }

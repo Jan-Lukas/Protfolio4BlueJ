@@ -34,14 +34,17 @@ public class BookTest {
 	@Test
 	public void addPageTest() {
 		out.addPage(FIRST_PAGE);
-		assertEquals(1, out.getPageContentList().size());
+		assertEquals(1, out.getPageContent().size());
+		assertEquals(true, out.contains(FIRST_PAGE));
 	}
 
 	@Test
 	public void addTwoPagesTest() {
 		out.addPage(FIRST_PAGE);
 		out.addPage(SECOND_PAGE);
-		assertEquals(2, out.getPageContentList().size());
+		assertEquals(2, out.getPageContent().size());
+		assertEquals(true, out.contains(FIRST_PAGE));
+		assertEquals(true, out.contains(SECOND_PAGE));
 	}
 
 	@Test
@@ -64,11 +67,6 @@ public class BookTest {
 		assertEquals(false, out.contains(NO_CONTENT_OF_PAGES));
 	}
 
-	@Test
-	public void negativeOnePageContainsTest() {
-		out.addPage(FIRST_PAGE);
-		assertEquals(false, out.contains(NO_CONTENT_OF_PAGES));
-	}
 
 	@Test
 	public void addKeywordTest() {
@@ -76,9 +74,4 @@ public class BookTest {
 		assertEquals(true, out.getListOfKeywords().contains(FIRST_KEYWORD));
 	}
 	
-	@Test 
-	public void getListOfKeywordsTest() {
-		out.addKeyword(FIRST_KEYWORD);		
-		assertEquals(true, out.getListOfKeywords().contains(FIRST_KEYWORD));
-	}
 }
