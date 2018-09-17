@@ -10,9 +10,6 @@ public class Book {
 
 	private String author;
 	
-	// set pageContent missing
-	// setListOfKeywords missing
-
 	// we assume that author is mandatory
 	public Book(String title, String author) {
 		this.title = title;

@@ -22,3 +22,8 @@ public class Main {
 
 	}
 }
+//TODO jlwe : Klassenkommentare hinzufügen
+//in book
+//set pageContent missing
+	// setListOfKeywords missing
+
