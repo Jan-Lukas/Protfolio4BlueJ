@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Book {
+public class Book  {
 	private String title;
 	private String category;
 	private List<String> pageContent = new ArrayList<>();
@@ -77,7 +77,7 @@ public class Book {
 		this.category = category;
 	}
 
-	public List<String> getPageContent() {
+	public List<String> getPageContentList() {
 		return new ArrayList<>(pageContent);
 	}
 

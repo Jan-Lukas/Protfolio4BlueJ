@@ -14,7 +14,6 @@ public class Client {
 		this.address = address;
 	}
 
-
 	public void returnBook(String title) {
 		Book bookToReturn = null;
 		for (Book book : borrowedBooks) {
@@ -27,10 +26,7 @@ public class Client {
 	}
 
 	public void removeBook(Book book) {
-		
-		while (borrowedBooks.contains(book)) {
 			borrowedBooks.remove(book);
-		}
 	}
 
 	public boolean isFavoriteCategory(String category) {
@@ -42,15 +38,16 @@ public class Client {
 		borrowBook(book);
 	}
 
-	
 	public void borrowBook(Book book) {
 		if (!book.isCompactDisc()) {
 			this.borrowedBooks.add(book);
 		}
 	}
-public int getCountOfBorrowedBooks(){
-	return borrowedBooks.size();
-}
+
+	public int getCountOfBorrowedBooks() {
+		return borrowedBooks.size();
+	}
+
 	public List<Book> getBorrowedBooks() {
 		return new ArrayList<>(borrowedBooks);
 	}
@@ -60,8 +57,8 @@ public int getCountOfBorrowedBooks(){
 	}
 
 	// for test purpose
-	public void addFavoriteCategory(String category){
-		if (!favoriteCategories.contains(category)){
+	public void addFavoriteCategory(String category) {
+		if (!favoriteCategories.contains(category)) {
 			favoriteCategories.add(category);
 		}
 	}

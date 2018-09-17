@@ -45,14 +45,14 @@ public class BookTest {
 	@Test
 	public void addPageTest() {
 		out.addPage(FIRST_PAGE);
-		assertEquals(1, out.getPageContent().size());
+		assertEquals(1, out.getPageContentList().size());
 	}
 
 	@Test
 	public void addTwoPagesTest() {
 		out.addPage(FIRST_PAGE);
 		out.addPage(SECOND_PAGE);
-		assertEquals(2, out.getPageContent().size());
+		assertEquals(2, out.getPageContentList().size());
 	}
 
 	@Test

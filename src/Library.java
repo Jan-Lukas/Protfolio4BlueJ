@@ -13,17 +13,7 @@ public class Library {
 		books.add(book);
 	}
 
-	private void removeBookFromLibrary(Book book) {
-		while (books.contains(book)) {
-			books.remove(book);
-		}
-	}
 
-	private void removeBookFromClients(Book book) {
-		for (Client client : clients) {
-			client.removeBook(book);
-		}
-	}
 
 	public void deleteBook(Book book) {
 		// doesn't remove all references if a book was added twice.
@@ -35,11 +25,6 @@ public class Library {
 		}
 	}
 
-	// fixed deleteBook
-	public void deleteAllBookReferences(Book book) {
-		removeBookFromLibrary(book);
-		removeBookFromClients(book);
-	}
 
 	public List<String> bookBorrowedBy(String bookTitle) {
 		ArrayList<String> bookBorrowedByList = new ArrayList<>();
@@ -92,8 +77,8 @@ public class Library {
 		return books;
 	}
 
-	public List<Client> gethClients() {
-		return new ArrayList<Client>(clients);
+	public List<Client> getClients() {
+		return new ArrayList<>(clients);
 	}
 
 }
