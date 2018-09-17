@@ -26,16 +26,21 @@ public class Client {
 	}
 
 	public void removeBook(Book book) {
-			borrowedBooks.remove(book);
+		borrowedBooks.remove(book);
 	}
 
 	public boolean isFavoriteCategory(String category) {
 		return favoriteCategories.contains(category);
 	}
 
+	public void addFavoriteCategory(String category) {
+		if (!favoriteCategories.contains(category)) {
+			favoriteCategories.add(category);
+		}
+	}
 
 	public void borrowBook(Book book) {
-			this.borrowedBooks.add(book);
+		this.borrowedBooks.add(book);
 	}
 
 	public int getCountOfBorrowedBooks() {
@@ -48,12 +53,6 @@ public class Client {
 
 	public List<String> getFavoriteCategories() {
 		return new ArrayList<>(favoriteCategories);
-	}
-
-	public void addFavoriteCategory(String category) {
-		if (!favoriteCategories.contains(category)) {
-			favoriteCategories.add(category);
-		}
 	}
 
 	public String getName() {
