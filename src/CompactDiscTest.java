@@ -3,7 +3,12 @@ import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
-
+/**
+ * TestClass for CompactDisc.java
+ * @author Dominik Schween, Jan-Lukas Weimann
+ * @version 17.09.2018
+ *
+ */
 public class CompactDiscTest {
 	private CompactDisc out;
 	private static final String CD_TITLE = "Lord of the Rings";

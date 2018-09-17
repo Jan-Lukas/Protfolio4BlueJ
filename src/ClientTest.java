@@ -2,7 +2,12 @@ import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
-
+/**
+ * Test class for Client.java
+ * @author Dominik Schween, Jan-Lukas Weimann
+ * @version 17.09.2018
+ *
+ */
 public class ClientTest {
 
 	private Client out;

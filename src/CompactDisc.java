@@ -1,6 +1,11 @@
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * Class to manage CompactDisc data.
+ * @author Dominik Schween, Jan-Lukas Weimann
+ * @version 17.09.2018
+ *
+ */
 public class CompactDisc {
 	
 	private String title;

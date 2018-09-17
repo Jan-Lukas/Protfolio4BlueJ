@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * @version 17.09.2018
+ *
+ */
 public class Library {
 
 	private List<Book> books = new ArrayList();

@@ -2,7 +2,12 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
-
+/**
+ * Test class for Library.java
+ * @author Dominik Schween, Jan-Lukas Weimann
+ * @version 17.09.2018
+ *
+ */
 public class LibraryTest {
 	private Library out;
 	private Book book;

@@ -1,6 +1,10 @@
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * 
+ * @version 17.09.2018
+ *
+ */
 public class Book {
 	public static final String DEFAULT_CATEGORY = "Roman";
 	private String title;

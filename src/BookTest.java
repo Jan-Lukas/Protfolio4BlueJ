@@ -2,7 +2,12 @@ import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
-
+/**
+ * Test class for Book.java
+ * @author Dominik Schween, Jan-Lukas Weimann
+ * @version 17.09.2018
+ *
+ */
 public class BookTest {
 	private static final String BOOK_TITLE = "Lord of the Rings";
 	private static final String FIRST_PAGE = "page content for the first page";
