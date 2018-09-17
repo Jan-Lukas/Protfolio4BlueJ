@@ -4,16 +4,18 @@ import java.util.List;
 public class Library {
 
 	private List<Book> books = new ArrayList();
+	private List<CompactDisc> compactDiscs = new ArrayList();
 
 	private List<Client> clients = new ArrayList();
-
 
 
 	public void addBook(Book book) {
 		books.add(book);
 	}
 
-
+	public void addCompactDisc(CompactDisc cd) {
+		compactDiscs.add(cd);
+	}
 
 	public void deleteBook(Book book) {
 		// doesn't remove all references if a book was added twice.
@@ -24,13 +26,15 @@ public class Library {
 			client.removeBook(book);
 		}
 	}
-
+	public void deleteCompactDisc(CompactDisc cd){
+		compactDiscs.remove(cd);
+	}
 
 	public List<String> bookBorrowedBy(String bookTitle) {
 		ArrayList<String> bookBorrowedByList = new ArrayList<>();
 		for (Client client : clients) {
 			for (Book book : client.getBorrowedBooks()) {
-				if (bookTitle.equals( book.getTitle()) && !bookBorrowedByList.contains( book.getTitle())) {
+				if (bookTitle.equals(book.getTitle()) && !bookBorrowedByList.contains(book.getTitle())) {
 					bookBorrowedByList.add(client.getName());
 				}
 
@@ -39,33 +43,30 @@ public class Library {
 		return bookBorrowedByList;
 	}
 
-	public void printListOfBooks() {
+	public void printListOfLibraryContent() {
 		for (Book book : books) {
-			if (!book.isCompactDisc()) {
-				System.out.println(book.getTitle() + " # " + book.getAuthor() + " # " + book.getCategory());
-				book.printKeywords();
-			} else {
-				System.out.println(book.getTitle() + " # " + book.getAuthor() + " # CD");
-				book.printKeywords();
-			}
+			System.out.println(book.getTitle() + " # " + book.getAuthor() + " # " + book.getCategory());
+			book.printKeywords();
+		}
+		for (CompactDisc cd : compactDiscs) {
+			System.out.println(cd.getTitle() + " # " + cd.getAuthor() + " # CD");
 		}
 	}
 
-	public List<Client> mostBooksBorrowedBy(){
-		ArrayList <Client> clientsWithMostBooks= new ArrayList<>();
+	public List<Client> mostBooksBorrowedBy() {
+		ArrayList<Client> clientsWithMostBooks = new ArrayList<>();
 		int highestNumberOfBorrowedBooks = 0;
-		
-		for (Client client : clients){
-			if (client.getCountOfBorrowedBooks() > highestNumberOfBorrowedBooks){
+
+		for (Client client : clients) {
+			if (client.getCountOfBorrowedBooks() > highestNumberOfBorrowedBooks) {
 				clientsWithMostBooks.clear();
-				highestNumberOfBorrowedBooks= client.getCountOfBorrowedBooks();
+				highestNumberOfBorrowedBooks = client.getCountOfBorrowedBooks();
 				clientsWithMostBooks.add(client);
-			}
-			else if (client.getCountOfBorrowedBooks() == highestNumberOfBorrowedBooks){
+			} else if (client.getCountOfBorrowedBooks() == highestNumberOfBorrowedBooks) {
 				clientsWithMostBooks.add(client);
 			}
 		}
-		
+
 		return clientsWithMostBooks;
 	}
 
@@ -74,7 +75,12 @@ public class Library {
 	}
 
 	public List<Book> getBooks() {
-		return books;
+		return new ArrayList<>(books);
+	}
+
+	public List<CompactDisc> getCompactDiscList() {
+
+		return new ArrayList<>(compactDiscs);
 	}
 
 	public List<Client> getClients() {

@@ -79,18 +79,11 @@ public class ClientTest {
 		assertEquals(true, out.getBorrowedBooks().get(0).equals(book));
 	}
 
-	@Test
-	public void borrowCompactDiskTest() {
-		book.setCompactDisc(true);
-		// library.addBook(book);
-		out.borrowBook(book);
-		assertEquals(true, out.getBorrowedBooks().isEmpty());
-
-	}
 
 	@Test
 	public void addAndBorrowBookTest() {
-		out.addAndBorrowBook(library, book);
+		out.borrowBook(book);
+		library.addBook(book);
 		library.addClient(out);
 		assertEquals(true, out.getBorrowedBooks().contains(book));
 		assertEquals(true, library.getBooks().contains(book));
@@ -99,8 +92,10 @@ public class ClientTest {
 	
 	@Test
 	public void getCountOfBorrowedBooksTest(){
-		out.addAndBorrowBook(library, book);
-		out.addAndBorrowBook(library, secondBook);
+		out.borrowBook(book);
+		library.addBook(book);
+		out.borrowBook(secondBook);
+		library.addBook(secondBook);
 		assertEquals(2, out.getCountOfBorrowedBooks());
 	}
 

@@ -4,14 +4,14 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class BookTest {
-	private Book out;
 	private static final String BOOK_TITLE = "Lord of the Rings";
 	private static final String FIRST_PAGE = "page content for the first page";
 	private static final String SECOND_PAGE = "completly different content";
 	private static final String NO_CONTENT_OF_PAGES = "not contained in a page!";
 	private static final String AUTHOR_BOOK = "J.R.R. Tolkien";
-	private static final String BOOK_CATEGORY = "Roman";
 	private static final String FIRST_KEYWORD = "first Keyword";
+	private static final String NO_CATEGORY="not a category";
+	private Book out;
 
 	@Before
 	public void intializeTests() {
@@ -20,26 +20,15 @@ public class BookTest {
 
 	}
 
-	@Test
-	public void setCompactDiscTrueTest() {
-		out.setCompactDisc(true);
-		assertEquals(true, out.isCompactDisc());
-	}
-
-	@Test
-	public void setCompactDiscFalseTest() {
-		out.setCompactDisc(false);
-		assertEquals(false, out.isCompactDisc());
-	}
 
 	@Test
 	public void hasCategoryTrueTest() {
-		assertEquals(true, out.hasCategory(BOOK_CATEGORY));
+		assertEquals(true, out.hasCategory(Book.DEFAULT_CATEGORY));
 	}
 
 	@Test
 	public void hasCategoryFalseTest() {
-		assertEquals(false, out.hasCategory("not a category"));
+		assertEquals(false, out.hasCategory(NO_CATEGORY));
 	}
 
 	@Test

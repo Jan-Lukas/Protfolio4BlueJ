@@ -17,7 +17,7 @@ public class Main {
 		client.borrowBook(book2);
 		client.borrowBook(book);
 		client2.borrowBook(book2);
-		library.printListOfBooks();
+		library.printListOfLibraryContent();
 		library.mostBooksBorrowedBy().forEach(clientLambda-> System.out.println(clientLambda.getCountOfBorrowedBooks()+"  "+clientLambda.getName()));;
 
 	}

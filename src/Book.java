@@ -1,15 +1,14 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Book  {
+public class Book {
+	public static final String DEFAULT_CATEGORY = "Roman";
 	private String title;
 	private String category;
 	private List<String> pageContent = new ArrayList<>();
 	private List<String> listOfKeywords = new ArrayList<>();
 
-	private boolean compactDisc;
 	private String author;
-	public static final String DEFAULT_CATEGORY = "Roman";
 
 	// we assume that author is mandatory
 	public Book(String title, String author) {
@@ -18,14 +17,6 @@ public class Book  {
 		this.author = author;
 	}
 
-	// eventuell eigene Klasse
-	public void setCompactDisc(boolean compactDisc) {
-		this.compactDisc = compactDisc;
-	}
-
-	public boolean isCompactDisc() {
-		return compactDisc;
-	}
 
 	public boolean hasCategory(String category) {
 		return this.category.equals(category);

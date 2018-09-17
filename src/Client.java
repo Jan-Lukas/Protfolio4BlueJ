@@ -33,15 +33,9 @@ public class Client {
 		return favoriteCategories.contains(category);
 	}
 
-	public void addAndBorrowBook(Library library, Book book) {
-		library.addBook(book);
-		borrowBook(book);
-	}
 
 	public void borrowBook(Book book) {
-		if (!book.isCompactDisc()) {
 			this.borrowedBooks.add(book);
-		}
 	}
 
 	public int getCountOfBorrowedBooks() {
@@ -56,7 +50,6 @@ public class Client {
 		return new ArrayList<>(favoriteCategories);
 	}
 
-	// for test purpose
 	public void addFavoriteCategory(String category) {
 		if (!favoriteCategories.contains(category)) {
 			favoriteCategories.add(category);
