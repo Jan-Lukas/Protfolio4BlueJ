@@ -2,8 +2,10 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
+
 /**
  * Test class for Library.java
+ * 
  * @author Dominik Schween, Jan-Lukas Weimann
  * @version 17.09.2018
  *
@@ -45,18 +47,21 @@ public class LibraryTest {
 		assertEquals(1, out.getBooks().size());
 		assertEquals(true, out.getBooks().contains(book));
 	}
+
 	@Test
 	public void addSecondBookTest() {
 		out.addBook(book);
 		out.addBook(secondBook);
 		assertEquals(2, out.getBooks().size());
 	}
+
 	@Test
 	public void addFirstCompactDiscTest() {
 		out.addCompactDisc(cd);
 		assertEquals(1, out.getCompactDiscList().size());
 		assertEquals(true, out.getCompactDiscList().contains(cd));
 	}
+
 	@Test
 	public void addSecondCompactDiscTest() {
 		out.addCompactDisc(cd);
@@ -65,23 +70,20 @@ public class LibraryTest {
 		assertEquals(true, out.getCompactDiscList().contains(cd));
 		assertEquals(true, out.getCompactDiscList().contains(cd2));
 	}
-	
+
 	@Test
 	public void deleteUniqueBookTest() {
 		out.addBook(book);
 		out.deleteBook(book);
 		assertEquals(false, out.getBooks().contains(book));
 	}
-	
 
-	
 	@Test
-	public void deleteCompactDiscTest(){
+	public void deleteCompactDiscTest() {
 		out.addCompactDisc(cd);
 		out.deleteCompactDisc(cd);
 		assertEquals(0, out.getCompactDiscList().size());
 	}
-
 
 	@Test
 	public void bookBorrowedByOneClientTest() {
@@ -89,8 +91,9 @@ public class LibraryTest {
 		client.borrowBook(book);
 		assertEquals(true, out.bookBorrowedBy(BOOK_TITLE).contains(CLIENT_NAME));
 		assertEquals(false, out.bookBorrowedBy(BOOK_TITLE).contains(CLIENT_NAME2));
-		
+
 	}
+
 	@Test
 	public void bookBorrowedByTwoClientsTest() {
 
@@ -102,7 +105,6 @@ public class LibraryTest {
 
 	}
 
-
 	@Test
 	public void bookBorrowedByNoneTest() {
 		out.addBook(book);
@@ -110,33 +112,35 @@ public class LibraryTest {
 		assertEquals(false, out.bookBorrowedBy(BOOK_TITLE2).contains(CLIENT_NAME));
 
 	}
-	
+
 	@Test
 	public void mostBooksBorrowedByTest() {
 		client.borrowBook(book);
 		client.borrowBook(secondBook);
 		client2.borrowBook(book);
-		
+
 		assertEquals(client, out.mostBooksBorrowedBy().get(0));
-		assertEquals(1, out.mostBooksBorrowedBy().size());	
+		assertEquals(1, out.mostBooksBorrowedBy().size());
 	}
+
 	@Test
 	public void mostBooksBorrowedByTwoClientsTest() {
 		client.borrowBook(book);
 		client.borrowBook(secondBook);
 		client2.borrowBook(book);
 		client2.borrowBook(secondBook);
-		
+
 		assertEquals(2, out.mostBooksBorrowedBy().size());
 	}
+
 	@Test
 	public void mostBooksBorrowedByNoneTest() {
-		out= new Library ();
+		out = new Library();
 		assertEquals(true, out.mostBooksBorrowedBy().isEmpty());
 	}
 
-	@Test 
-	public void addClientTest(){
+	@Test
+	public void addClientTest() {
 		out.addClient(client);
 		assertEquals(true, out.getClients().contains(client));
 	}
@@ -167,7 +171,6 @@ public class LibraryTest {
 		assertEquals(client2, out.getClients().get(1));
 	}
 
-	
 	// Because of the missing opportunity to test System.out.println properly
 	// accross different plattforms, we don't test the function
 	// printListOfBooks.
