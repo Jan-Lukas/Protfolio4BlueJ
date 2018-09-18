@@ -2,8 +2,10 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
+
 /**
  * Test class for Library.java
+ * 
  * @author Dominik Schween, Jan-Lukas Weimann
  * @version 17.09.2018
  *
@@ -44,7 +46,7 @@ public class LibraryTest {
 	public void addTwoBooksTest() {
 		out.addBook(book);
 		out.addBook(secondBook);
-		
+
 		assertEquals(true, out.books.contains(book));
 		assertEquals(true, out.books.contains(secondBook));
 	}
@@ -55,28 +57,29 @@ public class LibraryTest {
 		client2.addToLibrary(out);
 		book.addAndBorrowBook(out, client);
 		book.addAndBorrowBook(out, client2);
-		
+
 		assertEquals(true, out.bookBorrowedBy(BOOK_TITLE).contains(CLIENT_NAME));
 		assertEquals(true, out.bookBorrowedBy(BOOK_TITLE).contains(CLIENT_NAME2));
 	}
-	
+
 	@Test
 	public void bookBorrowedByOneClientTest() {
 		client.addToLibrary(out);
 		client2.addToLibrary(out);
 		book.addAndBorrowBook(out, client);
-		
+
 		assertEquals(true, out.bookBorrowedBy(BOOK_TITLE).contains(CLIENT_NAME));
 		assertEquals(false, out.bookBorrowedBy(BOOK_TITLE).contains(CLIENT_NAME2));
-		
+
 	}
+
 	@Test
 	public void bookBorrowedByNoneTest() {
 		client.addToLibrary(out);
 		book.addAndBorrowBook(out, client);
-		
+
 		assertEquals(0, out.bookBorrowedBy(BOOK_TITLE2).size());
-		
+
 	}
 
 	// Because of the missing opportunity to test System.out.println properly
