@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 /**
+ * Client models a Client with borrowedBooks, favoriteCategories, a name and an address.
  * @version 17.09.2018
  *
  */

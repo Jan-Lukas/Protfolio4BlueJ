@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 import java.util.List;
+
 /**
+ * The class models a book with title, category, author, pageContent and a list
+ * of keywords.
  * 
  * @version 17.09.2018
  *
@@ -13,14 +16,13 @@ public class Book {
 	private List<String> listOfKeywords = new ArrayList<>();
 
 	private String author;
-	
+
 	// we assume that author is mandatory
 	public Book(String title, String author) {
 		this.title = title;
 		this.category = DEFAULT_CATEGORY;
 		this.author = author;
 	}
-
 
 	public boolean hasCategory(String category) {
 		return this.category.equals(category);
@@ -43,14 +45,14 @@ public class Book {
 	public void addKeyword(String keyword) {
 		this.listOfKeywords.add(keyword);
 	}
+
 	public void printKeywords() {
 		if (listOfKeywords != null) {
 			System.out.println("Keywords:");
-			listOfKeywords.forEach(keyword -> System.out.println("\t-"+keyword));
+			listOfKeywords.forEach(keyword -> System.out.println("\t-" + keyword));
 			System.out.println();
 		}
 	}
-
 
 	public List<String> getPageContent() {
 		return new ArrayList<>(pageContent);
@@ -63,23 +65,23 @@ public class Book {
 	public String getAuthor() {
 		return author;
 	}
-	
+
 	public void setAuthor(String author) {
 		this.author = author;
 	}
-	
+
 	public String getTitle() {
 		return title;
 	}
-	
+
 	public void setTitle(String bookTitle) {
 		this.title = bookTitle;
 	}
-	
+
 	public String getCategory() {
 		return category;
 	}
-	
+
 	public void setCategory(String category) {
 		this.category = category;
 	}

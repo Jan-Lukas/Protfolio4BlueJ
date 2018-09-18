@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 /**
+ * Library models a library with books and compactDiscs.
  * @version 17.09.2018
  *
  */
